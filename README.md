@@ -23,4 +23,12 @@ Time Complexity:
 
 The time complexity of selection sort is O(n^2), where n is the number of elements in the array. Although not the most efficient sorting algorithm, it is simple and performs well for small datasets.
 
+Question 3: Benchmarking Runtime for all the 3 sorting Algorithms
 
+Generated values for various sets of input array sizes and its corresponding runtime for Insertion Sort, Selection Sort and Bubble Sort.
+
+Plotted Graph for the same.
+
+Red Line : Insertion Sort
+Green Line : Selection Sort
+Blue Line : Bubble Sort
