@@ -1,5 +1,5 @@
 
-Argue Correctness of Selection Sort:
+Question 2: Argue Correctness of Selection Sort:
 
 Selection sort is a simple sorting algorithm that works by repeatedly selecting the minimum element from the unsorted part of the array and placing it at the beginningof the array.
 
@@ -14,3 +14,34 @@ The algorithm terminates when the entire array is sorted. In each iteration, the
    
 Time Complexity: 
 The time complexity of selection sort is O(n^2), where n is the number of elements in the array. Although not the most efficient sorting algorithm, it is simple and performs well for small datasets.
+
+Question 3. Benchmarking Runtime for all 3 sorting algorithms
+
+Input Array Size  	Time Taken (in milliseconds)
+
+         Insertion Sort	
+5	                      0.001
+10	                      0.002
+50	                      0.003
+100	                   0.008
+1000	                   0.345
+5000	                   3.408
+10000	                   9.48
+
+         Selection Sort	
+5	                      0.001
+10	                      0.001
+50	                      0.005
+100	                   0.014
+1000	                   0.885
+5000	                  18.027
+10000	                  71.507
+
+          Bubble Sort	
+5	                      0.001
+10	                      0.001
+50	                      0.009
+100	                   0.019
+1000	                   1.389
+5000	                  24.319
+10000	                  87.537
