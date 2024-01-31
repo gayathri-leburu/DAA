@@ -19,6 +19,8 @@ Termination:
 The algorithm terminates when the entire array is sorted. In each iteration, the size of the unsorted subarray is reduced by one, and the sorted subarray grows. Eventually, the entire array becomes sorted.
    
 Time Complexity: 
+
+
 The time complexity of selection sort is O(n^2), where n is the number of elements in the array. Although not the most efficient sorting algorithm, it is simple and performs well for small datasets.
 
 
