@@ -30,5 +30,9 @@ Generated values for various sets of input array sizes and its corresponding run
 Plotted Graph for the same.
 
 Red Line : Insertion Sort
+
+
 Green Line : Selection Sort
+
+
 Blue Line : Bubble Sort
