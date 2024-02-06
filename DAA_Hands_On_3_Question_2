@@ -1,0 +1,42 @@
+***Time this function for various n e.g. n = 1,2,3.... 
+You should have small values of n all the way up to large values. 
+Plot "time" vs "n" (time on y-axis and n on x-axis). 
+Also, fit a curve to your data, hint it's a polynomial.***
+
+#include <stdio.h>
+#include <time.h>
+
+// Function prototype
+int polynomial(int n);
+
+int main() {
+    int n;
+
+    // Ask the user for the value of n
+    printf("Enter the value of n: ");
+    scanf("%d", &n);
+
+    clock_t start_time = clock(); // Start the timer
+    
+    // Call the function polynomial with the user-provided value of n
+    polynomial(n);
+    
+    clock_t end_time = clock(); // Stop the timer
+    double time_taken = ((double)(end_time - start_time)) / CLOCKS_PER_SEC * 1e6; // Convert to microseconds
+
+    // Display the elapsed time in microseconds
+    printf("Time taken for n = %d: %.2f microseconds\n", n, time_taken);
+
+    return 0;
+}
+
+// Function definition
+int f(int n) {
+    int x = 1;
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
+            x = x + 1;
+        }
+    }
+    return x;
+}
