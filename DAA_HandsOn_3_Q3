@@ -1,8 +1,17 @@
+function x = f(n)
+   x = 1;
+   for i = 1:n
+        for j = 1:n
+             x = x + 1;
+
 T(n) of the function is in the order of O(n^2).
+
 Therefore, the T(n) can be written as,
 T(n) = c * n^2
 Where c represents the constant time taken for each iteration of the inner loop.
+
 In order to calculate Big-O, Big-Omega and Big-Theta:
+
 Big-O (Upper Bound): The function is bounded above by O(n^2)..
 Big-Omega (Lower Bound): The function is also bounded below by Ω(n^2).
 Big-Theta (Tight Bound): Since upper and lower bounds are the same, 
