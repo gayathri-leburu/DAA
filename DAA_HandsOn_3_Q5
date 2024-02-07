@@ -1,0 +1,13 @@
+x = f(n)
+   x = 1;
+   y = 1;
+   for i = 1:n
+        for j = 1:n
+             x = x + 1;
+        y = i + j;
+Will it effect your results from #1?
+
+This modification will not affect the results from step #1 regarding the algorithm's runtime analysis. 
+The additional operation y = i + j does not change the overall time complexity of the algorithm, 
+which is still dominated by the nested loops iterating from 1 to n. 
+Therefore, the time complexity remains in the order of O(n^2).
