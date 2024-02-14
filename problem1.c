@@ -86,4 +86,24 @@ int main() {
     return 0;
 }
 
+*** OUTPUT ***
+***/tmp/0KaiMiItRZ.o
+Enter the number of arrays (k): 3
+Enter the size of each array (n): 4
+Enter elements for array 1 (sorted):
+1
+3
+5
+7
+Enter elements for array 2 (sorted):
+2
+4
+6
+8
+Enter elements for array 3 (sorted):
+0
+9
+10
+11
+Merged array: 0 1 2 3 4 5 6 7 8 9 10 11 
 ***
