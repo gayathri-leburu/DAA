@@ -15,4 +15,17 @@ iterating over the array of indexes (which has a constant size c) and finding th
 Since there are c×n elements in the merged array, and for each element, we perform an operation with a time complexity of 
 O(c), the overall time complexity of the mergeKArrays function is O(c^2 × n).
 
+************************************************************************************************************************
+
+**Problem 2:**
+
+The algorithm iterates through the array once from the beginning to the second-to-last element. This is a linear time operation and takes O(n) time, where n is the number of elements in the array.
+
+Inside the loop, it checks if the current element is different from the next element. This operation takes constant time and doesn't affect the overall time complexity.
+
+If the current element is different from the next one, it copies the current element to the output array. This operation also takes constant time.
+
+Finally, it copies the last element to the output array.
+
+Overall, the algorithm performs a single pass through the input array, performing constant time operations at each step. Therefore, the time complexity of the algorithm is O(n), where n is the number of elements in the input array.
 
