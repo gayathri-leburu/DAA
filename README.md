@@ -14,8 +14,13 @@ In addition your heap should have the following functionality
 ***************************
 
 Enter the number of elements: 5
+
 Enter 5 elements: 8 3 2 9 5
+
 Heap: 2 3 8 9 5 
+
 Root node removed from the heap: 2
+
 Heap after removal:
+
 Heap: 3 5 8 9 
