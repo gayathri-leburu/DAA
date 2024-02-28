@@ -25,6 +25,8 @@ int partition_non_random(int arr[], int low, int high) {
 - Let T(n) be the average number of comparisons required to partition an array of size n.
 The last element is chosen as the pivot in this implementation. So, on average, half of the elements are smaller than the pivot and half are larger.
 Therefore, the average number of comparisons for partitioning an array of size n is:
+<img width="229" alt="image" src="https://github.com/gayathri-leburu/CSE5311/assets/156869407/97a6d343-cc8c-4da8-82be-2a9281a444aa">
+
 
                      n
   
