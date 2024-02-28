@@ -29,7 +29,7 @@ Therefore, the average number of comparisons for partitioning an array of size n
 T(n) = n – 1 + (1/n) ∑ (T(i-1) + T(n-i))
                     i=1
 n−1 represents the number of comparisons for partitioning the array.
-The summation term represents the average number of comparisons for partitioning the left and right subarrays.
+- The summation term represents the average number of comparisons for partitioning the left and right subarrays.
 
  -- Overall Complexity:
 
