@@ -1,3 +1,4 @@
+                                    Time in microseconds
 Size of array	      Worst case	         Average case 	    Best case 
 10	                       1                  1                	 1 
 100	                      160 	              15     	          8 
@@ -7,3 +8,4 @@ Size of array	      Worst case	         Average case 	    Best case
 20000	                 1183221             763457 	          27726 
 50000	                 6187276 	          1976233 	          58693 
 100000	              26548978	          6895567	          1376982
+
