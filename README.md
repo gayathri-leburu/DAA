@@ -1,19 +1,7 @@
 **3. Mathematically derive the average runtime complexity of the non-random pivot version of quicksort.**
 
 Code Snippet:
-int partition_non_random(int arr[], int low, int high) {
-// Choosing the last element as pivot
-    int pivot = arr[high]; 
-    int i = low - 1;
-    for (int j = low; j <= high - 1; j++) {
-        if (arr[j] < pivot) {
-            i++;
-            swap(&arr[i], &arr[j]);	
-        }
-    }
-    swap(&arr[i + 1], &arr[high]);
-    return (i + 1);
-}
+<img width="301" alt="image" src="https://github.com/gayathri-leburu/CSE5311/assets/156869407/3bd977f8-7bdd-440f-a191-08f2ed03f030">
 
 -- Partitioning Time :
 
@@ -26,13 +14,6 @@ int partition_non_random(int arr[], int low, int high) {
 The last element is chosen as the pivot in this implementation. So, on average, half of the elements are smaller than the pivot and half are larger.
 Therefore, the average number of comparisons for partitioning an array of size n is:
 <img width="229" alt="image" src="https://github.com/gayathri-leburu/CSE5311/assets/156869407/97a6d343-cc8c-4da8-82be-2a9281a444aa">
-
-
-                     n
-  
-T(n) = n – 1 + (1/n) ∑ (T(i-1) + T(n-i))
-
-                    i=1
   
 n−1 represents the number of comparisons for partitioning the array.
 - The summation term represents the average number of comparisons for partitioning the left and right subarrays.
