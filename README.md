@@ -25,13 +25,18 @@ int partition_non_random(int arr[], int low, int high) {
 - Let T(n) be the average number of comparisons required to partition an array of size n.
 The last element is chosen as the pivot in this implementation. So, on average, half of the elements are smaller than the pivot and half are larger.
 Therefore, the average number of comparisons for partitioning an array of size n is:
+
                      n
+  
 T(n) = n – 1 + (1/n) ∑ (T(i-1) + T(n-i))
+
                     i=1
+  
 n−1 represents the number of comparisons for partitioning the array.
 - The summation term represents the average number of comparisons for partitioning the left and right subarrays.
 
  -- Overall Complexity:
+ 
 
 - The average-case time complexity of the non-random pivot QuickSort is approximately O(nlogn).
 - This complexity arises from the balanced partitioning of the array, which typically occurs in practice despite the deterministic pivot selection.
