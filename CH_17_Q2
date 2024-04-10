@@ -1,0 +1,35 @@
+For the dynamic table that doubles in size when it needs more space, let's analyze the amortized runtime for inserting ( n ) elements.
+a.	Aggregate Method:
+In the aggregate method, we consider the total cost of performing ( n ) operations and then divide it by ( n ) to find the average cost per operation.
+Doubling the Size of the Table: 
+Let's assume that doubling the size of the table takes ( O(n) ) time, where ( n ) is the current size of the table.
+Inserting Elements: 
+Inserting each element into the dynamic table takes ( O(1) ) time on average, assuming we amortize the cost over the entire process.
+
+Total Cost:
+The first ( n/2 ) insertions will take ( O(1) ) each because the table size doesn't change.
+The next ( n/4 ) insertions will take ( O(2) ) each (doubling the table size).
+The next ( n/8 ) insertions will take ( O(4) ) each (again doubling the table size).
+And so on...
+So, the total cost for inserting ( n ) elements can be calculated as:
+[ T(n) = n/2 x O(1) + n/4 x O(2) + n/8 x O(4) + ..]
+
+Amortized Runtime:
+The amortized runtime per insertion can be calculated as:
+Amortized Runtime = T(n)/n
+
+b.	Accounting Method:
+In the accounting method, we prepay for expensive operations and use the extra "credits" to pay for cheaper operations later.
+Doubling the Size of the Table: 
+We'll charge ( k ) units for doubling the table size, where ( k ) is the current size of the table.
+Inserting Elements: 
+We'll "pay" ( 2 ) units for each insertion, ( 1 ) unit for the operation itself and ( 1 ) unit to store as credit for future resizing.
+
+Total Cost:
+Inserting ( n ) elements will cost ( 2n ) units (each insertion costs ( 2 ) units).
+Doubling the table size ( m ) times will cost ( 1 + 2 + 4 + ….. + m ) units, which is ( 2^m - 1 ).
+
+Amortized Runtime:
+The amortized runtime per insertion can be calculated as:
+Amortized Runtime = (2n + 2^m – 1) / n
+
