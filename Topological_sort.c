@@ -1,60 +1,100 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 #define MAX_NODES 100
 
-// Graph representation with an adjacency list
-int adj[MAX_NODES][MAX_NODES];
-int visited[MAX_NODES];
-int n; // number of nodes
-int stack[MAX_NODES], top = -1;
+struct Node {
+    char name[20];
+    struct Node* next;
+};
 
-void addEdge(int u, int v) {
-    adj[u][v] = 1; // add a directed edge from u to v
+struct Graph {
+    struct Node* adjacency_list[MAX_NODES];
+};
+
+struct Node* create_node(char* name) {
+    struct Node* new_node = (struct Node*)malloc(sizeof(struct Node));
+    strcpy(new_node->name, name);
+    new_node->next = NULL;
+    return new_node;
 }
 
-void dfs(int v) {
-    visited[v] = 1;
-    for (int i = 0; i < n; i++) {
-        if (adj[v][i] && !visited[i]) {
-            dfs(i);
+void add_edge(struct Graph* graph, char* src, char* dest) {
+    int i;
+    for (i = 0; i < MAX_NODES; i++) {
+        if (graph->adjacency_list[i] == NULL) {
+            graph->adjacency_list[i] = create_node(dest);
+            break;
         }
     }
-    stack[++top] = v; // Push onto stack as we backtrack
+    struct Node* new_node = create_node(src);
+    new_node->next = graph->adjacency_list[i];
+    graph->adjacency_list[i] = new_node;
 }
 
-void topologicalSort() {
-    for (int i = 0; i < n; i++) {
-        visited[i] = 0;
-    }
-    for (int i = 0; i < n; i++) {
-        if (!visited[i]) {
-            dfs(i);
+void depth_first_search(struct Graph* graph, char* node, int* visited, char** topological_order, int* index) {
+    int i;
+    for (i = 0; i < MAX_NODES; i++) {
+        if (graph->adjacency_list[i] != NULL && strcmp(graph->adjacency_list[i]->name, node) == 0 && !visited[i]) {
+            visited[i] = 1;
+            struct Node* current = graph->adjacency_list[i]->next;
+            while (current != NULL) {
+                depth_first_search(graph, current->name, visited, topological_order, index);
+                current = current->next;
+            }
+            topological_order[*index] = graph->adjacency_list[i]->name;
+            (*index)++;
+            break;
         }
     }
-    while (top != -1) {
-        printf("%d ", stack[top--]);
+}
+
+void topological_sort(struct Graph* graph, char** topological_order) {
+    int visited[MAX_NODES] = {0};
+    int index = 0;
+    int i;
+    for (i = 0; i < MAX_NODES; i++) {
+        if (graph->adjacency_list[i] != NULL && !visited[i]) {
+            depth_first_search(graph, graph->adjacency_list[i]->name, visited, topological_order, &index);
+        }
     }
-    printf("\n");
 }
 
 int main() {
-    n = 6;
-    addEdge(5, 2);
-    addEdge(5, 0);
-    addEdge(4, 0);
-    addEdge(4, 1);
-    addEdge(2, 3);
-    addEdge(3, 1);
-    
-    printf("Topological Sorting: ");
-    topologicalSort();
+    struct Graph graph;
+    memset(&graph, 0, sizeof(struct Graph));
+
+    add_edge(&graph, "belt", "jacket");
+    add_edge(&graph, "pants", "shoes");
+    add_edge(&graph, "belt", "jacket");
+    add_edge(&graph, "jacket", "");
+    add_edge(&graph, "shirt", "belt");
+    add_edge(&graph, "shirt", "tie");
+    add_edge(&graph, "tie", "jacket");
+    add_edge(&graph, "socks", "shoes");
+    add_edge(&graph, "undershorts", "pants");
+    add_edge(&graph, "undershorts", "shoes");
+
+    char* topological_order[MAX_NODES];
+    topological_sort(&graph, topological_order);
+
+    printf("Topological order: [");
+    for (int i = MAX_NODES - 1; i >= 0; i--) {
+        if (topological_order[i] != NULL) {
+            printf("'%s'", topological_order[i]);
+            if (i != 0 && topological_order[i - 1] != NULL) {
+                printf(", ");
+            }
+        }
+    }
+    printf("]\n");
+
     return 0;
 }
 
 
-**********
+**************************
 OUTPUT
-**********
-
-Topological Sorting: 5 4 2 3 1 0 
+**************************
+Topological order: ['undershorts', 'socks', 'tie', 'shoes', 'shirt', 'jacket', 'belt', 'pants']
